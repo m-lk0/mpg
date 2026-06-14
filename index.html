@@ -45,7 +45,7 @@
         }
 
         .container {
-            width: 90%; /* Adjusted from 98% to provide better laptop & mobile margins */
+            width: 90%; 
             max-width: 1700px;
             margin: 0 auto;
         }
@@ -271,7 +271,7 @@
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px 40px;
+            gap: 16px 40px;
         }
 		
 		.contact-company-name {
@@ -289,6 +289,11 @@
             gap: 6px;
         }
 
+        /* Span the long commercial register text across both columns */
+        .contact-item.full-width {
+            grid-column: 1 / -1;
+        }
+
         .contact-label {
             font-size: 0.8rem;
             letter-spacing: 0.08em;
@@ -303,6 +308,10 @@
             min-height: 1.4em;
             border-bottom: 1px solid rgba(0, 106, 103, 0.2);
             padding-bottom: 4px;
+        }
+		
+		.mono-number {
+            font-family: ui-monospace, SFMono-Regular, Consolas, "Courier New", monospace;
         }
 
         @media (max-width: 1024px) {
@@ -468,11 +477,15 @@
                     </div>
                     <div class="contact-item">
                         <span class="contact-label">IČO</span>
-                        <span class="contact-value">57487961</span>
+                        <span class="contact-value mono-number">57487961</span>
                     </div>
                     <div class="contact-item">
                         <span class="contact-label">DIČ</span>
-                        <span class="contact-value">2122772784</span>
+                        <span class="contact-value mono-number">2122772784</span>
+                    </div>
+                    <div class="contact-item full-width">
+                        <span class="contact-label">Entry in the Commercial Register</span>
+                        <span class="contact-value">Obchodný register Okresného súdu Banská Bystrica, oddiel: Sro, vložka č. 55144/S</span>
                     </div>
                 </div>
             </div>
@@ -481,7 +494,7 @@
 
     <footer>
         <div class="container">
-            &copy; <script>document.write(new Date().getFullYear())</script> Mextrell s.r.o.
+            &copy; <script>document.write(new Date().getFullYear())</script> Mextrell s.r.o. &nbsp;&nbsp;|&nbsp;&nbsp; This website does not store or access cookies on your device.
         </div>
     </footer>
 
@@ -541,9 +554,7 @@
         }
 
         const travellingLights = [];
-        //const neonPalette = [0x00E5FF, 0xFFEA00, 0xFF107A, 0xBE0BFF, 0x00FF9D];
 		const neonPalette = [0xFFF4B7, 0x00E5FF, 0x00FFD2, 0x006A67, 0xFFFFFF];
-		//const neonPalette = [0xFFF4B7, 0xFFD700, 0xFF9100, 0xFFEA00, 0xFFFDE7];
 
         for (let i = 0; i < 35; i++) {
             const curve = createArc(radius);
